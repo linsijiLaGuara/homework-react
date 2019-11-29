@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Input } from "semantic-ui-react";
 import { ToDoContext } from "./contexts/";
-
+import TodoItem from "./Remover";
 
 class Buton extends Component {
   constructor() {
@@ -57,8 +57,16 @@ deleteItem(itemKey) {
           className="ingresar" onClick={this.createItem}>
           Añadir Tareas
         </Button>
-
+        { 
+          valueProvide.list.map(
+            (i) => (
+              <p> {i} </p> 
+             
+            )
+          )
+        } 
         <p>Lista de pendientes({valueProvide.list.length})</p>
+        <TodoItem />
       </div>
            
       </ToDoContext.Provider>
