@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Button, Input } from "semantic-ui-react";
+import{remover} from "./Remover"
 import { ToDoContext } from "./contexts/";
-import TodoItem from "./Remover";
+
 
 class Buton extends Component {
   constructor() {
@@ -33,9 +34,17 @@ createItem() {
 }
 
 deleteItem(itemKey) {
-    this.setState(({ list }) => ({
+    /*this.setState(({ list }) => ({
         list: list.filter((item, index) => index !== itemKey)
-    }));
+    }));*/
+let{list}=this.state;
+let newData=[
+  ...list.slice(0,itemKey),
+  ...list.slice(itemKey+1),
+]
+
+this.setState({list:newData})
+
 }
   render() {
     const valueProvide = {
@@ -45,30 +54,38 @@ deleteItem(itemKey) {
 
     return (
       <ToDoContext.Provider value={valueProvide}>
-     <div>
+     <div clasName = "tareas" >
         <input
           type="text"
           id="myInput"
           placeholder="Añade tu tarea..."
           ref={this.itemInput}
         />
-        <Button basic
+       
+        
+ <ul className="todo-list">
+{valueProvide.list.map(
+  (i) =>
+    <li list={i} key={i} onRemove={ 
+      () => this.deleteItem(i)} >{i}</li>
+ 
+
+  )
+}
+ 
+        <p>Lista de pendientes({valueProvide.list.length})</p>
+        </ul>
+       
+      </div>
+
+      <Button basic
           color="blue"
           className="ingresar" onClick={this.createItem}>
           Añadir Tareas
         </Button>
-        { 
-          valueProvide.list.map(
-            (i) => (
-              <p> {i} </p> 
-             
-            )
-          )
-        } 
-        <p>Lista de pendientes({valueProvide.list.length})</p>
-        <TodoItem />
-      </div>
-           
+     
+       
+       
       </ToDoContext.Provider>
     );
   }

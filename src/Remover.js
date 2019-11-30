@@ -1,27 +1,29 @@
-import React from 'react';
-import { Button, Input } from "semantic-ui-react";
-import { ToDoContext } from './contexts/';
 
-
-class TodoItem extends React.PureComponent {
-    render() {
+import React, {Component} from 'react';
+import { Button } from 'semantic-ui-react'
+class RemoverLista extends Component{
+    deleteItem(){
+        if(this.props.onRemove)
+            this.props.onRemove();
+    }
+    render(){
         return (
-            <ul>
-                
-                    {
-                        ({ list }) => // Recibimos los parámetros enviados desde el Provider
-                            list.map((item, key) =>
-                                <li key={key}>
-                                    {item}
-                                    <Button>Eliminar</Button>
-                                </li>
-                            )
-
-                    }
-                
-            </ul>
-        );
+          <li>
+              
+              <div className="name">
+                 
+                  <span className="list">{this.props.list}</span>
+              </div>
+            
+              <Button className="remove" basic
+          color="blue"
+              onClick={this.deleteItem(this.deleteItem.bind(this))}>
+                  <i className="semantic-ui-react"> Eliminar  </i>
+              </Button>
+          </li>
+        )
     }
 }
 
-export default TodoItem;
+
+export default RemoverLista;
