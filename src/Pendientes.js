@@ -1,12 +1,10 @@
 
 import React, { Component } from 'react';
-import { Button,Container,Divider } from 'semantic-ui-react'
-
-import Buton from './Button';
+import { Container,Divider } from 'semantic-ui-react'
 import _ from 'lodash';
 import './App.css';
 import Borrar from './Borrar';
-
+import Buton from "./Button";
 class Pendientes extends Component {
 
   constructor(props){
@@ -16,6 +14,7 @@ class Pendientes extends Component {
         {
           
           name  :"Proyecto de react"
+         
                     
           
          
@@ -33,30 +32,26 @@ class Pendientes extends Component {
     ]
 
     this.setState({ data : newData });
-
+   
   }
 
 
 
 
-
+//Para Remover la tarea estandar
   render() {
     return (<Divider>
        <Container>
-       <h1>Todo list</h1>
+       
             <div className="Pendientes">
 
-              <ul className="Lista de pendientes">
+ 
                 {this.state.data.map(
                   (borrar,index) =>
                     <Borrar data={borrar} key={index} onRemove={ 
                       () => this._remove(index)} />
                   )
                 }
-
-                
-
-              </ul>
             </div>
       </Container>
       </Divider>

@@ -73,16 +73,18 @@ this.setState({list:newData})
   )
 }
  
-        <p>Lista de pendientes({valueProvide.list.length})</p>
-        </ul>
-       
-      </div>
+      
 
-      <Button basic
+       
+        </ul>  <Button basic
           color="blue"
           className="ingresar" onClick={this.createItem}>
           Añadir Tareas
         </Button>
+       
+      </div>
+      <p>Nuevos  pendientes({valueProvide.list.length})</p>
+     
      
        
        

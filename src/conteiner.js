@@ -9,64 +9,41 @@ import { bool, string } from "prop-types";
 
 function Contenedor({  }) {
   return (
-    <Container>
+   
       <Router>
         <div>
           
-        <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="#Tareas">Tareas</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="mr-auto">
-                <Nav.Link href="#">
-                  <Link to="/"></Link>
-                 
-                </Nav.Link>
-                <Nav.Link href="#">
-                <li>
-                     <Link to="/Tareas"></Link>
-                     <Buton/>
-                     </li>
-              </Nav.Link>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
 
-              <Nav.Link href="#">
+          </li>
+          <p/>
+          <li>
+            <Link to="/nuevas">Nuevas tareas</Link>
+          </li>
+           <p/>
+          <li>
+            <Link to="/Pendientes">Pendientes</Link>
+          </li>
 
-                <li>
-                     <Link to="/Pendientes"></Link>
-                     <Pendientes/>
+          </ul>
+          <p/>
 
-
-              </li>
-
-              </Nav.Link>
-
-          
-              </Nav> 
-              
-        
-            </Navbar.Collapse>
-          </Navbar>
-
-
-
-
-
-
-          {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
           <Switch>
-            <Route path="/Tareas">
-              <Users />
-            </Route>
-            
-            <Route path="/Pendientes">
-            
+          <Route path="/nuevas">
+            <Buton />
           </Route>
-
-          </Switch>
+          <Route path="/Pendientes">
+            <Pendientes />
+          </Route>
+          <Route path="/">
+           </Route>
+        </Switch>
+      
         </div>
       </Router>
-    </Container>
+   
   );
 }
 

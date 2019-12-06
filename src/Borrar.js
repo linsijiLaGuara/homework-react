@@ -12,12 +12,23 @@ class Borrar extends Component{
               <div className="name">
                   <span className="borrar-Pendientes">{this.props.data.name}</span>
                   
-              </div>
-              
+                   
+                  </div> 
+
+                  <div className="Buton">
+
+                  <p>Practicar React</p>
+                  <p>Practicar Ingles</p>
+                 
+                     </div>
+            
+            <p/>
+
               <Button basic
           color="blue" className="remove" onClick={this._remove.bind(this)}>
                   <i className="semantic-ui-react">Eliminar</i>
               </Button>
+            
           </li>
         )
     }
