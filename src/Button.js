@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, Input } from "semantic-ui-react";
-import{remover} from "./Remover"
+
 import { ToDoContext } from "./contexts/";
 
 
@@ -63,7 +63,7 @@ this.setState({list:newData})
         />
        
         
- <ul className="todo-list">
+ <ul className="Tareas">
 {valueProvide.list.map(
   (i) =>
     <li list={i} key={i} onRemove={ 

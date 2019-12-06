@@ -2,10 +2,9 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import React from "react";
 import { connect } from "react-redux";
-import RemoverLista from "./Remover";
+
 import Buton from "./Button";
-
-
+import Pendientes from "./Pendientes";
 import { bool, string } from "prop-types";
 
 function Contenedor({  }) {
@@ -13,26 +12,45 @@ function Contenedor({  }) {
     <Container>
       <Router>
         <div>
-          <Navbar bg="light" expand="lg">
+          
+        <Navbar bg="light" expand="lg">
             <Navbar.Brand href="#Tareas">Tareas</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="mr-auto">
                 <Nav.Link href="#">
                   <Link to="/"></Link>
-
-                  <Buton/>
-                          < RemoverLista/>
+                 
                 </Nav.Link>
                 <Nav.Link href="#">
-                  
-                </Nav.Link>
-                
-              </Nav>
+                <li>
+                     <Link to="/Tareas"></Link>
+                     <Buton/>
+                     </li>
+              </Nav.Link>
+
+              <Nav.Link href="#">
+
+                <li>
+                     <Link to="/Pendientes"></Link>
+                     <Pendientes/>
+
+
+              </li>
+
+              </Nav.Link>
+
+          
+              </Nav> 
               
         
             </Navbar.Collapse>
           </Navbar>
+
+
+
+
+
 
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
@@ -41,6 +59,10 @@ function Contenedor({  }) {
               <Users />
             </Route>
             
+            <Route path="/Pendientes">
+            
+          </Route>
+
           </Switch>
         </div>
       </Router>
